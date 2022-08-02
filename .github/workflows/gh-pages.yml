@@ -21,7 +21,7 @@ jobs:
           extended: true 
   
       - name: Build 
-        run: hugo --minify --baseURL=https://agomezguru.github.io/learn-hugo 
+        run: hugo --minify --baseURL=https://agomezguru.github.io/learn-hugo/ 
   
       - name: Deploy 
         uses: peaceiris/actions-gh-pages@v3
