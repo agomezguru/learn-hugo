@@ -1,0 +1,7 @@
+baseURL: https://agomezguru.github.io/learn-hugo/
+languageCode: en-us
+title: Acme Corporation
+theme: Eclectic
+enableEmoji: true
+enableGitInfo: true
+
