@@ -7,24 +7,19 @@
     {{end}}
     <meta name="viewport" 
       content="width=device-width, initial-scale=1.0" />
-      {{ $css := resources.Match "*.css.tpl" |
-        resources.Concat "index.css" |
-        resources.ExecuteAsTemplate "index.css" "nothing"
-      }}
-      <link rel="stylesheet" type="text/css" href="{{$css.Permalink}}">
+    {{ $css := partialCached "index.css.html" $ "nothing"}}
+    <link rel="stylesheet" type="text/css" href="{{$css}}">
     {{$title := default site.Title .Title}}
     {{with $title}}<title>{{.}}</title>{{end}}
   </head>
   <body class="{{block "bodyClass" .}}{{end}}">
     {{block "header" .}}
       <header>
-        <a href="{{ site.BaseURL | relLangURL }}">
-        {{ $logo := resources.GetMatch "image/logo.svg.tpl" 
-          | resources.ExecuteAsTemplate "logo.svg" "nothing" }} 
-        <img src="{{$logo.Permalink}}" alt="Acme Logo" width="48" />
-        {{with site.Author.name}}{{.}}{{end}}
-        </a>
-      {{ partialCached "menu.html" (dict "Menu" site.Menus.main "Button" true) }}
+      <a href="{{ site.BaseURL | relLangURL }}">
+      <img src="{{partialCached "logo.svg" $ "nothing"}}" alt="Acme Logo" height="36" width="48" />
+          Acme Corporation
+      </a>
+      {{ partialCached "menu.html" (dict "Menu" site.Menus.main "Button" true) "main" }}
       </header>
     {{ end }}
     {{block "body" .}}
@@ -41,7 +36,7 @@
     {{end}}
     {{block "footer" .}}
       <footer class="dark">
-        {{ partial "menu.html" (dict "Menu" site.Menus.footer) }}
+        {{ partialCached "menu.html" (dict "Menu" site.Menus.footer) "footer" }}
         <ul>
           {{with site.Author.facebook}}
             <li>
