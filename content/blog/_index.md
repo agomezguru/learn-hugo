@@ -8,6 +8,15 @@ menu:
   footer: 
     name: Blog 
     weight: 100 
+cascade:
+- _target: 
+      kind: page
+  layout: blog 
+  type: modern
+- _target: 
+      kind: section
+  layout: list
+  type: modern 
 ---
 
 The Acme Blog
