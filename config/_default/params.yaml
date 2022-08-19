@@ -1,5 +1,11 @@
 color: "#DC2626"
 copyright: "Copyright &copy; 2022 Acme Corporation. All Rights Reserved."
+TermsAndPrivacy:
+  company_name: COATI Tech
+  contact_email: alagunas@coati.com.mx
+  website: https://agomezguru.github.io
+  contact_dpo_email: admin@coati.com.mx
+  contact_dpo_phone: +52 95150-21000
 footer:
   - title: About
     content: >
